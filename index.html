@@ -87,9 +87,11 @@
             <!-- Here we are using the {{ }} to again grab information off our scope
                  This time we are looking at the newPokemon being created and
                 pulling off the HP ATK and DEF we get from the input boxes above.-->
-            <div class="stat"> HP: {{newPokemon.stats.hp}} </div>
-            <div class="stat"> ATK: {{newPokemon.stats.atk}} </div>
-            <div class="stat"> DEF: {{newPokemon.stats.def}} </div>
+            HP: {{newPokemon.stats.hp}} </br>
+            ATK: {{newPokemon.stats.atk}} </br>
+            DEF: {{newPokemon.stats.def}} </br>
+           
+
           </div>
         </div>
       </div>
@@ -127,16 +129,21 @@
         <div class="name"> {{ card.name }}</div>
         <div class="picture" ng-style='{backgroundImage:"url(" + card.url + ")"}'></div>
         <div class="stats">
+            
           <!-- ng-repeat can also loop over an object instead of an array.
                 It's syntax is the same as a for in loop in javascript.
                 We specify the variables to hold the key and value.  In this
                 case we named the key as stat, and value as value.  We are looping
                 over all the properties in the card's stats object. -->
+                <button ng-click="removeCard(card)"> Remove Card </button>
           <div class="stat" ng-repeat ="(stat, value) in card.stats">
             <!-- Angular has a built in uppercase function that we can run our
                 stat names through. Other such filters include lowercase,
                 currency, and date -->
+
             {{stat | uppercase}}: {{value}}
+
+
           </div>
         </div>
 

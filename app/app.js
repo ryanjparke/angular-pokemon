@@ -23,6 +23,10 @@ angular.module('cardViewer').controller('listCtrl', function($scope){
   // Here we are putting an array of images onto the $scope
   $scope.images = getImages(); // Get an array of images;
 
+  $scope.removeCard = function(cardToRemove) {
+    $scope.cards = $scope.cards.filter(e=>e!==cardToRemove);
+  }
+
 
   // Here we are setting up what a newPokemon object should look like when we
   // start
